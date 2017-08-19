@@ -1,0 +1,67 @@
+<div class="container-fluid">
+<%=  link_to("Add New Subject", {:action => 'new' }, :class => "action new") %>
+ 
+ <% if !flash['notice'].blank? %>
+
+  <h4 style="text-align: center; background-color: #85de85; padding: 10px 20px;">
+     <%= flash['notice']  %>
+     </h4>
+
+ <% end %>
+<table border="1px" class="table table-striped table-inverse">
+<thead>
+<tr>
+<td>&nbsp</td>
+<td>Subject</td>
+<td>Visible</td>
+<td>Pages</td>
+<td>Action</td>
+</tr>
+</thead>
+<tbody>
+<%  @subjects.each do |subject|  %>
+<tr>
+ <td> <%= subject.position %></td>
+ <td> <%= subject.name %></td>
+ <td><%= subject.visible ? 'Yes' : 'NO' %></td>
+  <td><%= subject.position %></td>
+  <td>
+  	 <%= link_to("show",{ :action => 'show',:id => subject.id }, :class =>'btn btn-info') %>
+   	 <%= link_to("edit",{:action => 'edit', :id =>  subject.id }, :class =>'btn btn-success') %>
+  	 <%= link_to("delete",{:action => 'delete' , :id => subject.id}, :class =>'btn btn-danger') %>
+
+  </td>
+</tr>
+
+<% end %>
+
+</tbody>
+</table>
+  <% # number_with_delimiter(1000000 ) => جدان کردم مبلغ  %>
+
+  <!--date times-->
+   <%=
+       # Time.now   
+       # Time.now + 30.days - 23.minutes
+       # 30.days.from_now  - 23.minutes
+       # h("<h4> sdfsfsfsfsdfsfs </h4>")
+        # sanitize(html , options) html and javascript 
+        # sanitize (@subject.content , :tags => ['p',"br","strong","em"], :attributes =>["id","class","style"])
+        # sanitize("sdfsf",tags[])
+    %>
+
+</div>
+<!---JAVASCRIPT
+<%= javascript_tag do %>
+
+ <!-- alert("alert test  is "); -->
+
+<% end %>
+
+ <%  name="Amin.saki" %>
+
+<%= link_to("Roar",'#' , :onclik => "jsRoar('#{name}'); return true;") %>
+
+<%= javascript_tag("jsRoar('#{name}')") %>
+<!--end javascript-->
+

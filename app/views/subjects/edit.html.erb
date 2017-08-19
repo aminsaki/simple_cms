@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>update</title>
+</head>
+<body>
+   <%= form_for(:subjects , :url => { :action => 'update' ,:id => @subjects.id }) do |f| %>
+
+    <table border="1px" style="min-width: 28%; margin-left:500px; margin-top: 100px; margin-right: 150px;">
+    	<tr>
+           <th>Name</th>
+           <td><%= f.text_field(:name) %></td>
+        </tr>
+        <tr>
+            <th>position</th>
+           <td><%= f.text_field(:position) %></td>
+            </tr>
+        <tr> 
+            <th>visible</th>
+           <td><%= f.text_field(:visible) %></td>
+        </tr>
+        <tr>
+       	
+       	<tr>
+       		<td colspan="8"><%= submit_tag("update Subject") %> </td>
+       	</tr>
+    </table>
+     <% end %>
+</body>
+</html>

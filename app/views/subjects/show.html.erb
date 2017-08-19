@@ -1,0 +1,49 @@
+<% @page_title = "نمایش" %>
+
+<%= link_to("<< back to list",{:action =>'index' }) %>
+<style>
+*{margin: 0px border:0; padding: 0}
+  table{
+  	border:1px groove black;
+  	min-width: 100%
+  }
+  table thead tr td{
+      text-align: center;
+      background-color:blue;
+      color:white;
+      font-size: 18px;
+      font-style: bold;
+  }
+    table tbody tr td{
+      text-align: center;
+  }
+</style>
+<div class="content">
+ 
+ <% if !flash['notice'].blank? %>
+
+  <h4>
+     <%= flash['notice']  %>
+     </h4>
+
+ <% end %>
+	 <table border="1px">
+	 	<thead>
+	 		<tr>
+	 			 <td>Pages</td>
+	 			 <td>Subject</td>
+	 			 <td>Visible</td>
+	 			 <td>position</td>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+
+            <tr>
+               <td> <%= @subjects.position %></td>
+               <td> <%= @subjects.name %></td>
+               <td><%= @subjects.visible ? 'Yes' : 'NO' %></td>
+               <td><%= @subjects.position %></td>
+            </tr>
+	 	</tbody>
+	 </table>
+</div>
